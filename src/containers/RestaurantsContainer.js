@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import RestaurantInput from '../components/RestaurantInput';
-import {fetchRestaurants} from '../actions/restaurants'
+import RestaurantsList from '../components/RestaurantsList'
+
 
 class RestaurantsContainer extends Component {
+
    render() {
       return (
          <div>
             <RestaurantInput />
+            <RestaurantsList restaurants={this.props.restaurants}/>
          </div>
       )
    }
 }
 
-// const mapDispatchToProps = dispatch => {
-//    return {fetchRestaurants: (location) => dispatch({type: "SEARCH_RESTAURANT", location})}
-// }
+const mapStateToProps = state => {
+   return {restaurants: state.restaurants}
+}
 
-export default (RestaurantsContainer)
+RestaurantsContainer.defaultProps = {
+   restaurants: []
+}
+
+export default connect(mapStateToProps)(RestaurantsContainer)
