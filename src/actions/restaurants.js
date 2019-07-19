@@ -11,6 +11,6 @@ export const fetchRestaurants = (location) => {
          body: JSON.stringify(location)
       })
       .then(resp => resp.json())
-      .then(json => console.log(json))
+      .then(json => dispatch({type: "GET_RESTAURANTS", restaurants: json}))
    }
 }

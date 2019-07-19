@@ -9,7 +9,6 @@ export class RestaurantInput extends Component {
    }
 
    handleChange = (event) => {
-      console.log(event.target)
       this.setState({
          location: event.target.value
       })
