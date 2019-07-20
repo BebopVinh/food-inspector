@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {fetchRestaurants} from '../actions/restaurants'
+import {fetchRestaurants} from '../../actions/restaurants'
 
 export class RestaurantInput extends Component {
 
