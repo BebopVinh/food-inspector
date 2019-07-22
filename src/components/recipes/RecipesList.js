@@ -3,22 +3,26 @@ import React, { Component } from 'react'
 export class RecipesList extends Component {
 
    renderRecipes = (recipes) => {
-      return recipes.map(r => (
-         <div key={r.id}>
-           <span>
-              <img src={`${r.image}`}/>
-               <p>Name: {r.label}</p>
-               <ul className="recipe-info-list">
-                  <li>Health-Labels: {r.healthLabels.join(", ")}</li>
-                  <li>Cautions: {r.cautions}</li>
-                  <ul className="ingredients-list">
-                     {r.ingredients.map(ing => <li>{ing.text}</li>)}
+      if (recipes.length < 1) {
+         return <div><p>No recipes found.</p></div>
+      } else {
+         return recipes.map(r => (
+            <div key={r.id}>
+            <span>
+               <img src={`${r.image}`}/>
+                  <p>Name: {r.label}</p>
+                  <ul className="recipe-info-list">
+                     <li>Health-Labels: {r.healthLabels.join(", ")}</li>
+                     <li>Cautions: {r.cautions}</li>
+                     <ul className="ingredients-list">
+                        {r.ingredients.map(ing => <li>{ing.text}</li>)}
+                     </ul>
                   </ul>
-               </ul>
-           </span>
-           <br/><br/>
-         </div>
-      ))
+            </span>
+            <br/><br/>
+            </div>
+         ))
+      }
    }
 
    render() {
