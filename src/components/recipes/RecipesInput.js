@@ -17,10 +17,13 @@ export class RecipesInput extends Component {
 
    render() {
       return (
-         <form onSubmit={this.handleSubmit}>
-            <input name="recipe" type="text" value={this.state.recipe} onChange={this.handleChange}/>
-            <input type="submit" value="Search!"/>
-         </form>
+         <div>
+            <h2>Recipes Search Bar</h2>
+            <form onSubmit={this.handleSubmit}>
+               <input name="recipe" type="text" value={this.state.recipe} onChange={this.handleChange}/>
+               <input type="submit" value="Search!"/>
+            </form>
+         </div>
       )
    }
 }
