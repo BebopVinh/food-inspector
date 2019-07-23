@@ -4,7 +4,8 @@ import Restaurant from './Restaurant'
 
 export class RestaurantsList extends Component {
 
-   renderRestaurants = () => {  
+   renderRestaurants = () => { 
+      if (!!this.props.restaurants.length) 
       return this.props.restaurants.map(r =>
          <Restaurant restaurant={r} key={r.id} />
       )
