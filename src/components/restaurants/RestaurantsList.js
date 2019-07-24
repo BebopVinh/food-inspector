@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
-import Restaurant from './Restaurant'
+import {Link} from 'react-router-dom'
 
 
 export class RestaurantsList extends Component {
 
    renderRestaurants = () => { 
       if (!!this.props.restaurants.length > 0)
-      return this.props.restaurants.map(r =>
-         <Restaurant restaurant={r} key={r.restaurant_id} />
+      return (
+         this.props.restaurants.map(r => {
+               return <Link to={{
+                  pathname: `/restaurants/${r.restaurant_id}`,
+                  state: {restaurant: r}
+               }}>{r.restaurant_name}<br/>
+               </Link> 
+            }
+         )
       )
    }
 
