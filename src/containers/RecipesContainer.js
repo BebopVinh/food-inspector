@@ -10,6 +10,7 @@ class RecipesContainer extends Component {
       return (
          <div>
             <RecipesInput fetchRecipes={this.props.fetchRecipes}/>
+            <br/> <br/>
             <RecipesList recipes={this.props.recipes} />
          </div>
       )
