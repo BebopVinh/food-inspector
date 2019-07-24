@@ -3,10 +3,10 @@ import React, { Component } from 'react'
 export class RecipesList extends Component {
 
    renderRecipes = (recipes) => {
-      if (recipes.length < 1) {
+      if (recipes.recipes.length < 1) {
          return <div><p>No recipes found.</p></div>
       } else {
-         return recipes.map(r => (
+         return recipes.recipes.map(r => (
             <div key={r.id}>
             <span>
                <img src={`${r.image}`}/>
