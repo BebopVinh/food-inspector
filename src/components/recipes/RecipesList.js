@@ -15,7 +15,7 @@ export class RecipesList extends Component {
                      <li>Health-Labels: {r.healthLabels.join(", ")}</li>
                      <li>Cautions: {r.cautions}</li>
                      <ul className="ingredients-list">
-                        {r.ingredients.map(ing => <li>{ing.text}</li>)}
+                        {this.renderIngredients(r.ingredients)}
                      </ul>
                   </ul>
             </span>
@@ -23,6 +23,19 @@ export class RecipesList extends Component {
             </div>
          ))
       }
+   }
+
+   renderIngredients = (ingredients) => {
+      return ( ingredients.map(ing => {
+            const setStyle = {}
+            if (ing.text.toLowerCase().includes(this.props.userAllergen)) {
+               setStyle.color = "red"
+            } else {
+               setStyle.color = "black"
+            }
+            return <li style={setStyle}> {ing.text} </li>
+         })
+      )
    }
 
    render() {
