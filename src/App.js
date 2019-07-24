@@ -7,7 +7,7 @@ import RestaurantsContainer from './containers/RestaurantsContainer'
 function App() {
   return (
     <div className="App">
-      {/* <RecipesContainer /> */}
+      <RecipesContainer />
       <RestaurantsContainer />
     </div>
   );
