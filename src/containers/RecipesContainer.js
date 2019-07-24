@@ -6,11 +6,18 @@ import {fetchRecipes} from '../actions/recipes'
 
 class RecipesContainer extends Component {
 
+   componentDidMount() {
+      if (!!this.props.match.params.name) {
+         this.props.fetchRecipes({recipe: this.props.match.params.name})
+      }
+   }
+   
+
    render() {
       return (
          <div>
             <RecipesInput fetchRecipes={this.props.fetchRecipes}/>
-            <br/> <br/>
+            <br/><br/>
             <RecipesList recipes={this.props.recipes} />
          </div>
       )
