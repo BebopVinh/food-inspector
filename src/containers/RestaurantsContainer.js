@@ -18,11 +18,13 @@ class RestaurantsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   return {restaurants: state.restaurants.restaurants}
+   return {
+      restaurants: state.restaurants.restaurants
+   }
 }
 
 RestaurantsContainer.defaultProps = {
-   restaurants: []
+   restaurants: [],
 }
 
 export default connect(mapStateToProps)(RestaurantsContainer)
