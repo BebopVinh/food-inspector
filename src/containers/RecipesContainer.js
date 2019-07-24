@@ -18,14 +18,17 @@ class RecipesContainer extends Component {
          <div>
             <RecipesInput fetchRecipes={this.props.fetchRecipes}/>
             <br/><br/>
-            <RecipesList recipes={this.props.recipes} />
+            <RecipesList recipes={this.props.recipes} userAllergen={this.props.userAllergen}/>
          </div>
       )
    }
 }
 
 const mapStateToProps = (state) => {
-   return {recipes: state.recipes}
+   return {
+      recipes: state.recipes,
+      userAllergen: state.allergen.userAllergen
+   }
 }
 
 
