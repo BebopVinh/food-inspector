@@ -19,7 +19,7 @@ class RestaurantsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   return {restaurants: state.restaurants}
+   return {restaurants: state.restaurants.restaurants}
 }
 
 RestaurantsContainer.defaultProps = {
