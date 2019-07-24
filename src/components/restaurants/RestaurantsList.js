@@ -5,9 +5,9 @@ import Restaurant from './Restaurant'
 export class RestaurantsList extends Component {
 
    renderRestaurants = () => { 
-      if (!!this.props.restaurants.length) 
+      if (!!this.props.restaurants.length > 0)
       return this.props.restaurants.map(r =>
-         <Restaurant restaurant={r} key={r.id} />
+         <Restaurant restaurant={r} key={r.restaurant_id} />
       )
    }
 
