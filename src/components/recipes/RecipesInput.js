@@ -14,6 +14,7 @@ export class RecipesInput extends Component {
       event.preventDefault()
       this.props.fetchRecipes(this.state)
    }
+   
 
    render() {
       return (
