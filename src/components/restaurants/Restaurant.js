@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 export class Restaurant extends Component {
+
 
    renderMenus = (sections) => {
       return sections.map(section => {
          return <div key={section.position}>
             <h4>{section.section_name}</h4>
             <ul className="menu-items-list">
-               {section.menu_items.map(item => <li>{item.name}</li>)}
+               {section.menu_items.map(item => {
+                  //Slugging item's name to fetch from Edamam Recipe API
+                  const itemName = item.name.toLowerCase().replace(/ /g, "-")
+                  return <Link to={{
+                     pathname: `/recipes/${itemName}`
+                  }}>{item.name} <br/></Link>
+               })}
             </ul>
             <br/>
          </div>
@@ -15,7 +23,7 @@ export class Restaurant extends Component {
    }
 
    render() {
-      const r = this.props.restaurant
+      const r = this.props.location.state.restaurant
       return (
          <div>
             <h3>{r.restaurant_name}</h3>
