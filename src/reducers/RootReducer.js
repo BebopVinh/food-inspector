@@ -1,13 +1,13 @@
 import {combineReducers} from 'redux'
 import RecipesReducer from './RecipesReducer'
 import RestaurantsReducer from './RestaurantsReducer'
-import AllergenReducer from './AllergenReducer'
+import UsersReducer from './UsersReducer'
 
 const rootReducer = combineReducers(
    {
       recipes: RecipesReducer,
       restaurants: RestaurantsReducer,
-      allergen: AllergenReducer
+      user: UsersReducer
    }
 )
 
