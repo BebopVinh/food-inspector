@@ -24,9 +24,10 @@ class RecipesContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+   console.log(state)
    return {
       recipes: state.recipes,
-      userAllergen: state.allergen.userAllergen
+      userAllergen: state.user.userAllergen
    }
 }
 
