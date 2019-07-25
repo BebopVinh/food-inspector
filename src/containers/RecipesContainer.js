@@ -12,7 +12,6 @@ class RecipesContainer extends Component {
       }
    }
    
-
    render() {
       return (
          <div>
