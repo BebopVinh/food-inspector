@@ -15,7 +15,9 @@ export class RestaurantInput extends Component {
 
    handleSubmit = (event) => {
       event.preventDefault()
+      console.log("a")
       this.props.fetchRestaurants(this.state)
+      console.log("b")
    }
 
    render() {

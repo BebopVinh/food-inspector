@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import Comments from './Comments'
 
 export class Restaurant extends Component {
 
+   state = {
+      comments: [],
+      content: ""
+   }
 
    renderMenus = (sections) => {
       return sections.map(section => {
@@ -21,6 +26,8 @@ export class Restaurant extends Component {
          </div>
       })
    }
+
+
 
    render() {
       const r = this.props.location.state.restaurant

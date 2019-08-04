@@ -1,4 +1,5 @@
 export const fetchRestaurants = (location) => {
+   console.log("c")
    return dispatch => {
       dispatch({type: "LOADING"})
       const url = `http://localhost:3000/restaurants`
@@ -10,6 +11,11 @@ export const fetchRestaurants = (location) => {
          body: JSON.stringify(location)
       })
       .then(resp => resp.json())
-      .then(restaurants => dispatch({type: "GET_RESTAURANTS", restaurants}))
+      .then(restaurants => {
+         console.log("d")
+         return dispatch({ type: "GET_RESTAURANTS", restaurants }) 
+      }
+       )
    }
+   console.log("e")
 }
