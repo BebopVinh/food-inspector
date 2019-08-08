@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap'
 
 export class RecipesList extends Component {
 
@@ -6,11 +7,13 @@ export class RecipesList extends Component {
       if (recipes.recipes.length < 1) {
          return <div><p>No recipes found.</p></div>
       } else {
+         debugger
          return recipes.recipes.map(r => (
-            <div key={r.id}>
-            <span>
-               <img src={`${r.image}`}/>
-                  <p>Name: {r.label}</p>
+            <Card key={r.id} width="20em">
+               <CardImg top width="20em" src={`${r.image}`} />
+               <CardBody>
+               <CardTitle>{r.label}</CardTitle>
+               <CardText>
                   <ul className="recipe-info-list">
                      <li>Health-Labels: {r.healthLabels.join(", ")}</li>
                      <li>Cautions: {r.cautions}</li>
@@ -18,9 +21,9 @@ export class RecipesList extends Component {
                         {this.renderIngredients(r.ingredients)}
                      </ul>
                   </ul>
-            </span>
-            <br/><br/>
-            </div>
+                  </CardText>
+               </CardBody>
+            </Card>
          ))
       }
    }
