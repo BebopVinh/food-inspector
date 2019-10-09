@@ -4,7 +4,7 @@ import Geocode from "react-geocode"
 import { connect } from 'react-redux';
 import {fetchRestaurants} from '../../actions/restaurants'
 
-Geocode.setApiKey("AIzaSyCgr_0s9OuufJRDtnZhIizU9u8ZhPh1rp4")
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_GEOCODE_API_KEY)
 
 export class RestaurantInput extends Component {
 
@@ -19,18 +19,16 @@ export class RestaurantInput extends Component {
    handleSubmit = (event) => {
 
       event.preventDefault()
-      const latLng = Geocode.fromAddress(this.state.location).then(
+      Geocode.fromAddress(this.state.location).then(
          response => {
             const { lat, lng } = response.results[0].geometry.location
             console.log(lat, lng)
-            return {lat, lng}
          },
          error => {
             console.error(error)
          }
       )
-      console.log(latLng)
-      this.props.fetchRestaurants({location: latLng})
+      // this.props.fetchRestaurants({location: latLng})
    }
 
    render() {
