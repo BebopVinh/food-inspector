@@ -9,10 +9,7 @@ export const fetchRestaurants = location => {
 			},
 			body: JSON.stringify(location)
 		})
-			.then(resp => {
-				console.log(resp)
-				resp.json()
-			})
+			.then(resp => resp.json())
 			.then(restaurants =>
 				dispatch({ type: "GET_RESTAURANTS", restaurants })
 			)
