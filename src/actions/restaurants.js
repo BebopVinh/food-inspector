@@ -1,17 +1,18 @@
 export const fetchRestaurants = location => {
-	return dispatch => {
+	return async dispatch => {
 		dispatch({ type: "LOADING" })
 		const url = `http://localhost:3000/restaurants`
-		return fetch(url, {
+
+		const resp = await fetch(url, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify(location)
 		})
-			.then(resp => resp.json())
-			.then(restaurants =>
-				dispatch({ type: "GET_RESTAURANTS", restaurants })
-			)
+
+		const restaurants = await resp.json()
+		console.log(restaurants)
+		dispatch({ type: "GET_RESTAURANTS", restaurants })
 	}
 }
